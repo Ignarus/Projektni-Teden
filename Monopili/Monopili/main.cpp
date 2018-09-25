@@ -1,9 +1,10 @@
-#include "SDL.h" 
 #include "Koda/SDL_Stuff.h"
+
 
 int main( int argc, char* args[] ) 
 {
-	srand(time(NULL));
+
+	SDL_SetMainReady();
 
 	//Inicializacija SDL-a 
 	if (!init())
@@ -19,7 +20,7 @@ int main( int argc, char* args[] )
 		}
 		else
 		{
-			//inicializacija za tekst
+			//Inicializacija za tekst
 			if (TTF_Init() < 0)
 			{
 				printf("Failed to initialize text!\n");
@@ -35,12 +36,12 @@ int main( int argc, char* args[] )
 
 				//While application is running
 
-				//GameLoop(quit, e);
+				_getch();
 			}
 		}
 	}
 
-	//Quit SDL 
+	//zapri SDL 
 	SDL_Quit(); 
 
 	return 0; 

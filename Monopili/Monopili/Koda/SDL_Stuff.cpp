@@ -1,6 +1,7 @@
 #include "SDL_Stuff.h"
 
 
+
 bool init()
 {
 	//Initialization flag

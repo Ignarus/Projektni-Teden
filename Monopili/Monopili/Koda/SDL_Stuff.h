@@ -5,30 +5,14 @@
 #include <SDL.h>
 #include <SDL_image.h> 
 #include <SDL_ttf.h>
-#include <iostream>
 #include <stdio.h>
-#include <stdlib.h>   
-#include <string>
-#include <math.h>
 #include <conio.h>
-#include <windows.h>
-#include <time.h>
-#include <conio.h>
-#include <dos.h>
-#include <vector>
 #include <string>
-#include <fstream>
+#include <iostream>
 
 
-
-
-
-#define pi 3.1415
-
-
-
-const int SCREEN_WIDTH = 640*2;
-const int SCREEN_HEIGHT = 480*2;
+const int SCREEN_WIDTH = 640 * 2;
+const int SCREEN_HEIGHT = 480 * 2;
 
 //Starts up SDL and creates window
 bool init();

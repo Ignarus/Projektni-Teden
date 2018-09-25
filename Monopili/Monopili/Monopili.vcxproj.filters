@@ -21,9 +21,21 @@
     <ClCompile Include="Koda\SDL_Stuff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Koda\Igra.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Koda\Polje.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Koda\SDL_Stuff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Koda\Igra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Koda\Polje.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
