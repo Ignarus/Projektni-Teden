@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Monopili",
+    "\\Monopili\\Monopili",
+    "\\Monopili\\Monopili\\SDL",
+    "\\Monopili\\Monopili\\SDL\\lib",
+    "\\Monopili\\Monopili\\SDL\\lib\\x64"
+  ],
+  "SelectedNode": "\\Monopili\\Monopili\\main.cpp",
+  "PreviewInSolutionExplorer": false
+}
