@@ -78,7 +78,7 @@ void close()
 	SDL_Quit();
 }
 
-SDL_Texture* loadTexture(std::string path)
+SDL_Texture* loadTexture(string path)
 {
 	//The final texture
 	SDL_Texture* newTexture = NULL;

@@ -4,6 +4,8 @@
 #include "SDL_Stuff.h"
 #include "Igralec.h"
 
+class Igralec;
+
 class IPolje {
 private:
 	int ID;
@@ -22,10 +24,9 @@ public:
 
 class ILastniskoPolje: IPolje {
 private:
-	Igralec* Lastnik;
+	Igralec Lastnik;
 	int cena;
 public:
-	int 
 };
 
 class GradbenoPolje: ILastniskoPolje {

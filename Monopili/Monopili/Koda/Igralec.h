@@ -6,7 +6,7 @@
 
 class Igralec {
 private:
-	std::vector<ILastniskoPolje*> imam;
+	vector<ILastniskoPolje*> imam;
 	int denar;
 	int denarnaVrednostVsega;
 public:

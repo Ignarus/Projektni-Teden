@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
 
 const int SCREEN_WIDTH = 640 * 2;
 const int SCREEN_HEIGHT = 480 * 2;
@@ -25,7 +26,7 @@ bool loadMedia();
 void close();
 
 //Loads individual image as texture
-SDL_Texture* loadTexture(std::string path);
+SDL_Texture* loadTexture(string path);
 
 //The window we'll be rendering to
 __declspec(selectany) SDL_Window* gWindow = NULL;
