@@ -1,4 +1,5 @@
 #include "Koda/SDL_Stuff.h"
+#include "Koda/Igra.h"
 
 
 int main( int argc, char* args[] ) 
@@ -36,7 +37,8 @@ int main( int argc, char* args[] )
 
 				//While application is running
 
-				_getch();
+				igra(quit, e);
+
 			}
 		}
 	}

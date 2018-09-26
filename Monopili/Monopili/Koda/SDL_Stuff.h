@@ -9,6 +9,7 @@
 #include <conio.h>
 #include <string>
 #include <iostream>
+#include <vector>
 
 
 const int SCREEN_WIDTH = 640 * 2;
