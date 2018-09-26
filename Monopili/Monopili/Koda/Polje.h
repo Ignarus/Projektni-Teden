@@ -13,28 +13,30 @@ public:
 	virtual void narisi() = 0;
 };
 
-class PoljeZAkcijo {
+class PoljeZAkcijo: IPolje {
 private:
 	SDL_Texture* Slikca;
 public:
 	void narisi();
 };
 
-class ILastniskoPolje {
+class ILastniskoPolje: IPolje {
 private:
 	Igralec* Lastnik;
+	int cena;
 public:
-
+	int 
 };
 
-class GradbenoPolje {
+class GradbenoPolje: ILastniskoPolje {
 private:
 	//barva
+	int cenaHiske;
 public:
 	void narisi();
 };
 
-class PosebnoPolje {
+class PosebnoPolje: ILastniskoPolje {
 private:
 	//slikca
 public:
