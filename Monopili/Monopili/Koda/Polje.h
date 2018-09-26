@@ -2,8 +2,7 @@
 #define POLJE_H
 
 #include "SDL_Stuff.h"
-
-class IPolje;
+#include "Igralec.h"
 
 class IPolje {
 private:
@@ -23,7 +22,7 @@ public:
 
 class ILastniskoPolje {
 private:
-	//Igralec* Lastnik;
+	Igralec* Lastnik;
 public:
 
 };

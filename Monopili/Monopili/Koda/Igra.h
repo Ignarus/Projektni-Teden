@@ -10,6 +10,7 @@ void igra(bool &quit, SDL_Event &e);
 class Igra {
 private:
 	std::vector<Igralec> Igralci;
+	std::vector<IPolje*> IgralnoPolje;
 public:
 };
 

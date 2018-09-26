@@ -7,6 +7,8 @@
 class Igralec {
 private:
 	std::vector<ILastniskoPolje*> imam;
+	int denar;
+	int denarnaVrednostVsega;
 public:
 
 };
