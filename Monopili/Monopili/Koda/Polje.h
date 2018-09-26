@@ -5,12 +5,13 @@
 #include "Igralec.h"
 
 
-
 class IPolje {
 private:
 	int ID;
+	SDL_Rect KvadratPolje;//polje mesta
 public:
-	int getLocation();
+	SDL_Rect getKvadrat();//vrne rect vrednosti
+	void SetKvadraat(SDL_Rect );
 	//virtual void action() = 0;
 	virtual void narisi() = 0;
 };
@@ -32,6 +33,7 @@ public:
 class GradbenoPolje: ILastniskoPolje {
 private:
 	//barva
+	SDL_Rect KvadratBarva;//Katero barveno skupino spada
 	int cenaHiske;
 public:
 	void narisi();
