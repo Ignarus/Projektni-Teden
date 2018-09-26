@@ -4,7 +4,7 @@
 #include "SDL_Stuff.h"
 #include "Igralec.h"
 
-class Igralec;
+
 
 class IPolje {
 private:
@@ -24,9 +24,9 @@ public:
 
 class ILastniskoPolje: IPolje {
 private:
-	Igralec Lastnik;
 	int cena;
 public:
+	virtual void narisi() = 0;
 };
 
 class GradbenoPolje: ILastniskoPolje {
@@ -39,7 +39,7 @@ public:
 
 class PosebnoPolje: ILastniskoPolje {
 private:
-	//slikca
+	SDL_Texture * Slikca;
 public:
 	void narisi();
 };

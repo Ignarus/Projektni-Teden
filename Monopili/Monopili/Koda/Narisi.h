@@ -2,6 +2,5 @@
 #define NARISI_H
 
 
-
-#endif // !NARISI_H
+#endif
 

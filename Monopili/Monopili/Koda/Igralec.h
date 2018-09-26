@@ -1,12 +1,12 @@
 #ifndef IGRALEC_H
 #define IGRALEC_H
 
-#include "Polje.h"
 #include "SDL_Stuff.h"
+#include "Polje.h"
 
 class Igralec {
 private:
-	vector<ILastniskoPolje*> imam;
+	vector<IPolje*> imam;
 	int denar;
 	int denarnaVrednostVsega;
 public:
@@ -14,5 +14,5 @@ public:
 };
 
 
-#endif // !IGRALEC_H
+#endif
 
