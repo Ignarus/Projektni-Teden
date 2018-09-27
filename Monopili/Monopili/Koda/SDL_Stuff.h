@@ -13,8 +13,8 @@
 
 using namespace std;
 
-const int SCREEN_WIDTH = 640 * 2;
-const int SCREEN_HEIGHT = 480 * 2;
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
 
 //Starts up SDL and creates window
 bool init();
