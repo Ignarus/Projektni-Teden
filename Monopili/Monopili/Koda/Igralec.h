@@ -16,6 +16,7 @@ private:
 	int denarnaVrednostVsega;
 	SDL_Rect Portret;
 	Text ImeTekst;
+	int lokacija;
 public:
 	Igralec(string ime, int igralec);
 	void narisi();

@@ -43,6 +43,7 @@ enum Barve
 };
 
 class Igra;
+class Igralec;
 
 class IPolje {
 protected:
@@ -51,7 +52,7 @@ protected:
 public:
 	SDL_Rect getKvadrat();//vrne rect vrednosti
 	//virtual void action() = 0;
-	//virtual void narisi() = 0;
+	virtual void narisi() = 0;
 	void KvadratPodatki(int i, Igra TrenutnaIgra);//doloci rect x,y,h,w
 
 };	
@@ -65,15 +66,16 @@ public:
 	void narisi();
 };
 
-class ILastniskoPolje: protected IPolje {
+class ILastniskoPolje: public IPolje {
 protected:
+	Igralec * Lastnik;
 	int cena;
 	int IndexIgralec;
 public:
 	virtual void narisi() = 0;
 };
 
-class GradbenoPolje: ILastniskoPolje{
+class GradbenoPolje: public ILastniskoPolje{
 protected:
 	SDL_Rect KvadratBarva;//Katero barveno skupino spada izrisat
 	int cenaHiske;
@@ -86,13 +88,13 @@ public:
 	void RenderBarva(int barva);
 };
 
-class PosebnoPolje: ILastniskoPolje {
+class PosebnoPolje: public ILastniskoPolje {
 private:
 	SDL_Texture * Slikca;
 	int VrstaPolja;//enum Posebno
 public:
 	PosebnoPolje(int i, Igra TrenutnaIgra);//konstruktor
-	//void narisi();
+	void narisi();
 };
 
 #endif

@@ -226,3 +226,12 @@ void GradbenoPolje::RenderBarva(int barva)
 void PoljeZAkcijo::narisi() {
 
 }
+
+void PosebnoPolje::narisi() {
+
+}
+
+
+
+
+

@@ -16,12 +16,13 @@ class Igra {
 private:
 	vector<Igralec> Igralci;
 	vector<IPolje*> Polja;
-	SDL_Rect Igralno_polje;
 	vector<Gumb> Gumbi;
+	SDL_Rect Igralno_polje;
 	Miska Curzor;
 public:
 	void UpdateCurzoe(SDL_Event* e);
 	Igra(int stIgralcev);
+	~Igra();
 	void NarisiVse();
 	void NarisiIgralnoPolje();
 	void NarisiPortretIgralcev();

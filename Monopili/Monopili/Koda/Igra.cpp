@@ -40,6 +40,15 @@ Igra::Igra(int stIgralcev) {
 		Gumb knof(i,"Ukaz "+to_string(i+1));
 		Gumbi.push_back(knof);
 	}
+	for (int i = 0; i < 40; i++) {
+		Polja.push_back(new PosebnoPolje(i, *this));
+	}
+}
+
+Igra::~Igra() {
+	for (int i = 0; i < Polja.size();i++) {
+		delete Polja[i];
+	}
 }
 
 void Igra::NarisiVse() {

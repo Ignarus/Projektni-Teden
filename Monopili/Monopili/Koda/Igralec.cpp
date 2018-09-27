@@ -3,6 +3,7 @@
 
 Igralec::Igralec(string ime, int igralec) {
 	this->ime = ime;
+	lokacija = 0;
 	ImeTekst.loadMedia("Roboto-Black.ttf", 25);
 	steviloIgralca = igralec;
 	switch (igralec){
