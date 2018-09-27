@@ -281,10 +281,10 @@ void GradbenoPolje::RenderBarva(int barva)
 	case Oranzna:
 		SDL_SetRenderDrawColor(gRenderer, 255, 102, 0, 255);
 		break;
-	case Rumena:
+	case Rdeca:
 		SDL_SetRenderDrawColor(gRenderer, 255, 0, 0, 255);
 		break;
-	case Rdeca:
+	case Rumena:
 		SDL_SetRenderDrawColor(gRenderer, 255, 255, 51, 255);
 		break;
 	case Zelena:
