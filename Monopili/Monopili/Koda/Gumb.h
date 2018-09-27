@@ -12,6 +12,8 @@ private:
 public:
 	Gumb(int zaporedje, string besedilo);
 	void narisi();
+	SDL_Rect getKvadrat();
+	string getUkaz();
 };
 
 #endif

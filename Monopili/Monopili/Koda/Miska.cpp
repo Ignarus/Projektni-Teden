@@ -32,3 +32,8 @@ int Miska::getZadnjaAkcija() {
 
 	return ZadnjaAkcija;
 }
+
+
+SDL_Point Miska::getPozicija() {
+	return PozicijaMiske;
+}

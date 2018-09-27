@@ -19,6 +19,8 @@ private:
 public:
 	Igralec(string ime, int igralec);
 	void narisi();
+	SDL_Rect getKvadrat();
+	string getName();
 };
 
 

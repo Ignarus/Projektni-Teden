@@ -4,7 +4,7 @@ void igra(bool &quit, SDL_Event &e) {
 
 	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 
-	Igra Trenutna_igra(4);
+	Igra Trenutna_igra(3);
 
 	while (!quit) {
 		while (SDL_PollEvent(&e) != 0)
@@ -22,7 +22,6 @@ void igra(bool &quit, SDL_Event &e) {
 		SDL_RenderClear(gRenderer);
 
 		Trenutna_igra.NarisiVse();
-
 
 		SDL_RenderPresent(gRenderer);
 	}
@@ -74,4 +73,23 @@ void Igra::NarisiGumbe() {
 
 void Igra::UpdateCurzoe(SDL_Event* e) {
 	Curzor.handleEvent(e);
+	if (Curzor.getZadnjaAkcija() == LeviGumbGor) {
+		SDL_Point Klik = Curzor.getPozicija();
+		if (Klik.x < SCREEN_WIDTH / 16 * 4.5 || Klik.x > SCREEN_WIDTH / 16 * 11.5) {//prever èe je igralec kliknil na podatke od igralca
+			for (int i = 0; i < Igralci.size(); i++) {
+				SDL_Rect Portret = Igralci[i].getKvadrat();
+				if (Portret.x < Klik.x && Klik.x < Portret.x + Portret.w && Portret.y < Klik.y && Klik.y < Portret.y + Portret.h) {
+					printf("\n klik: %s \n", Igralci[i].getName());
+				}
+			}
+		}
+		else if (Klik.y > SCREEN_HEIGHT / 9 + 7.25) { // preveri èe je igralec kliknil na gumb za ukaz
+			for (int i = 0; i < Gumbi.size(); i++) {
+				SDL_Rect Kvadrat = Gumbi[i].getKvadrat();
+				if (Kvadrat.x < Klik.x && Klik.x < Kvadrat.x + Kvadrat.w && Kvadrat.y < Klik.y && Klik.y < Kvadrat.y + Kvadrat.h) {
+					printf("\n klik: %s \n", Gumbi[i].getUkaz());
+				}
+			}
+		}
+	}
 }
