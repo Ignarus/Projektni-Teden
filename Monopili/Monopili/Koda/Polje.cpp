@@ -7,6 +7,7 @@ SDL_Rect IPolje::getKvadrat()
 
 void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 {
+	ID = i;
 	SDL_Rect tmp = TrenutnaIgra.GetIgralnoPolje();
 	if (i < 10) {
 		KvadratPolje.x = tmp.x;
@@ -205,12 +206,12 @@ void GradbenoPolje::RenderBarva(int barva)
 		SDL_SetRenderDrawColor(gRenderer, 255, 0, 255, 255);
 		break;
 	case Oranzna:
-		SDL_SetRenderDrawColor(gRenderer, 204, 204, 255, 255);
-		break;
-	case Rdeca:
-		SDL_SetRenderDrawColor(gRenderer, 255, 0, 0, 255);
+		SDL_SetRenderDrawColor(gRenderer, 255, 102, 0, 255);
 		break;
 	case Rumena:
+		SDL_SetRenderDrawColor(gRenderer, 255, 0, 0, 255);
+		break;
+	case Rdeca:
 		SDL_SetRenderDrawColor(gRenderer, 255, 255, 51, 255);
 		break;
 	case Zelena:
