@@ -190,7 +190,7 @@ void GradbenoPolje::BarvniKvadrat(int i, int barva)
 	RenderBarva(barva);
 }
 
-void RenderBarva(int barva)
+void GradbenoPolje::RenderBarva(int barva)
 {
 	switch (barva)
 	{
