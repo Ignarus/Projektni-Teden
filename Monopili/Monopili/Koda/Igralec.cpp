@@ -3,6 +3,7 @@
 
 Igralec::Igralec(string ime, int igralec) {
 	this->ime = ime;
+	ImeTekst.loadMedia("Roboto-Black.ttf", 25);
 	steviloIgralca = igralec;
 	switch (igralec){
 	case 0:
@@ -30,9 +31,6 @@ Igralec::Igralec(string ime, int igralec) {
 		Portret.h = SCREEN_HEIGHT / 9 * 4;
 		break;
 	}
-	SDL_Color Black = { 0,0, 0, 255 };
-	ImeTekst.loadMedia("Roboto-Black.ttf", 50);
-	ImeTekst.loadFromRenderedText(ime, Black);
 }
 
 
@@ -41,5 +39,7 @@ void Igralec::narisi() {
 	SDL_RenderFillRect(gRenderer, &Portret);
 	SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0xFF);
 	SDL_RenderDrawRect(gRenderer, &Portret);
-	ImeTekst.render(SCREEN_WIDTH / 2 - ImeTekst.getWidth() / 2, SCREEN_HEIGHT / 2 - ImeTekst.getHeight() / 2);
+	SDL_Color Black = { 0,0, 0, 255 };
+	ImeTekst.loadFromRenderedText(ime, Black);
+	ImeTekst.render(Portret.x + (Portret.w / 2) - ImeTekst.getWidth() / 2, Portret.y);
 }

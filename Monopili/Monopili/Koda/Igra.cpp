@@ -4,7 +4,7 @@ void igra(bool &quit, SDL_Event &e) {
 
 	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 
-	Igra Trenutna_igra(4);
+	Igra Trenutna_igra(3);
 
 	while (!quit) {
 		while (SDL_PollEvent(&e) != 0)
@@ -33,7 +33,7 @@ Igra::Igra(int stIgralcev) {
 	Igralno_polje.w = SCREEN_WIDTH / 16 * 7;
 	Igralno_polje.h = SCREEN_HEIGHT / 9 * 7;
 	for (int i = 0; i < stIgralcev; i++) {
-		Igralec Novi(to_string(i),i);
+		Igralec Novi(to_string(i+1),i);
 		Igralci.push_back(Novi);
 	}
 	 
