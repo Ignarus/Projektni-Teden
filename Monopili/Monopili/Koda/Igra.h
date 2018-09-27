@@ -7,6 +7,9 @@
 
 void igra(bool &quit, SDL_Event &e);
 
+class Igralec;
+class IPolje;
+
 class Igra {
 private:
 	vector<Igralec> Igralci;
