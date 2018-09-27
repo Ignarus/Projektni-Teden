@@ -5,9 +5,11 @@
 #include "Polje.h"
 #include "Narisi.h"
 
+class IPolje;
+
 class Igralec {
 private:
-	//vector<IPolje*> imam;
+	vector<IPolje*> imam;
 	string ime;
 	int steviloIgralca;
 	int denar;

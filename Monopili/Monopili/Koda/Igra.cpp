@@ -4,7 +4,7 @@ void igra(bool &quit, SDL_Event &e) {
 
 	const Uint8* currentKeyStates = SDL_GetKeyboardState(NULL);
 
-	Igra Trenutna_igra(3);
+	Igra Trenutna_igra(4);
 
 	while (!quit) {
 		while (SDL_PollEvent(&e) != 0)
@@ -36,13 +36,17 @@ Igra::Igra(int stIgralcev) {
 		Igralec Novi(to_string(i+1),i);
 		Igralci.push_back(Novi);
 	}
-	 
+	for (int i = 0; i < 3; i++) {
+		Gumb knof(i,"Ukaz "+to_string(i+1));
+		Gumbi.push_back(knof);
+	}
 }
 
 
 void Igra::NarisiVse() {
 	NarisiIgralnoPolje();
 	NarisiPortretIgralcev();
+	NarisiGumbe();
 }
 
 void Igra::NarisiIgralnoPolje() {
@@ -61,5 +65,11 @@ SDL_Rect Igra::GetIgralnoPolje() {
 void Igra::NarisiPortretIgralcev() {
 	for (int i = 0; i < Igralci.size(); i++) {
 		Igralci[i].narisi();
+	}
+}
+
+void Igra::NarisiGumbe() {
+	for (int i = 0; i < Gumbi.size(); i++) {
+		Gumbi[i].narisi();
 	}
 }
