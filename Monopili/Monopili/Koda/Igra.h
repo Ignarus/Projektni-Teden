@@ -5,6 +5,7 @@
 #include "Igralec.h"
 #include "Polje.h"
 #include "Gumb.h"
+#include "Miska.h"
 
 void igra(bool &quit, SDL_Event &e);
 
@@ -17,8 +18,9 @@ private:
 	vector<IPolje*> Polja;
 	SDL_Rect Igralno_polje;
 	vector<Gumb> Gumbi;
-
+	Miska Curzor;
 public:
+	void UpdateCurzoe(SDL_Event* e);
 	Igra(int stIgralcev);
 	void NarisiVse();
 	void NarisiIgralnoPolje();

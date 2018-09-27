@@ -36,6 +36,9 @@
     <ClCompile Include="Koda\Gumb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Koda\Miska.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Koda\SDL_Stuff.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Koda\Gumb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Koda\Miska.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

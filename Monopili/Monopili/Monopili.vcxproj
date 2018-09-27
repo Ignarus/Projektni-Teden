@@ -22,6 +22,7 @@
     <ClCompile Include="Koda\Gumb.cpp" />
     <ClCompile Include="Koda\Igra.cpp" />
     <ClCompile Include="Koda\Igralec.cpp" />
+    <ClCompile Include="Koda\Miska.cpp" />
     <ClCompile Include="Koda\Narisi.cpp" />
     <ClCompile Include="Koda\Polje.cpp" />
     <ClCompile Include="Koda\SDL_Stuff.cpp" />
@@ -31,6 +32,7 @@
     <ClInclude Include="Koda\Gumb.h" />
     <ClInclude Include="Koda\Igra.h" />
     <ClInclude Include="Koda\Igralec.h" />
+    <ClInclude Include="Koda\Miska.h" />
     <ClInclude Include="Koda\Narisi.h" />
     <ClInclude Include="Koda\Polje.h" />
     <ClInclude Include="Koda\SDL_Stuff.h" />

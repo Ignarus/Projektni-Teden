@@ -14,6 +14,7 @@ void igra(bool &quit, SDL_Event &e) {
 			{
 				quit = true;
 			}
+			Trenutna_igra.UpdateCurzoe(&e);
 
 		}
 
@@ -42,7 +43,6 @@ Igra::Igra(int stIgralcev) {
 	}
 }
 
-
 void Igra::NarisiVse() {
 	NarisiIgralnoPolje();
 	NarisiPortretIgralcev();
@@ -56,11 +56,9 @@ void Igra::NarisiIgralnoPolje() {
 	SDL_RenderDrawRect(gRenderer, &Igralno_polje);
 }
 
-
 SDL_Rect Igra::GetIgralnoPolje() {
 	return Igralno_polje;
 }
-
 
 void Igra::NarisiPortretIgralcev() {
 	for (int i = 0; i < Igralci.size(); i++) {
@@ -72,4 +70,8 @@ void Igra::NarisiGumbe() {
 	for (int i = 0; i < Gumbi.size(); i++) {
 		Gumbi[i].narisi();
 	}
+}
+
+void Igra::UpdateCurzoe(SDL_Event* e) {
+	Curzor.handleEvent(e);
 }
