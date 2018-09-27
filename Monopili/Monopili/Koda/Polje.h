@@ -5,6 +5,8 @@
 #include "Igralec.h"
 #include "Igra.h"
 
+//Mankajo cene
+
 enum Akciija
 {
 	Zacetek,
@@ -19,12 +21,13 @@ enum Akciija
 
 enum Posebno
 {
-	Zahod,
+	//Zahod,
 	Elektrika,
-	Sever,
-	Vzhod,
+	Vlak,
+	//Sever,
+	//Vzhod,
 	Voda,
-	Jug
+	//Jug
 };
 
 enum Barve
@@ -48,7 +51,7 @@ protected:
 public:
 	SDL_Rect getKvadrat();//vrne rect vrednosti
 	//virtual void action() = 0;
-	virtual void narisi() = 0;
+	//virtual void narisi() = 0;
 	void KvadratPodatki(int i, Igra TrenutnaIgra);//doloci rect x,y,h,w
 
 };	
@@ -62,25 +65,25 @@ public:
 	void narisi();
 };
 
-class ILastniskoPolje: IPolje {
+class ILastniskoPolje: protected IPolje {
 protected:
 	int cena;
 	int IndexIgralec;
 public:
-	//virtual void narisi() = 0;
-	void KvadratPodatki(int i, Igra TrenutnaIgra);
+	virtual void narisi() = 0;
 };
 
 class GradbenoPolje: ILastniskoPolje{
 protected:
-	//barva
 	SDL_Rect KvadratBarva;//Katero barveno skupino spada izrisat
 	int cenaHiske;
 	int cenaHotela;
-	int BarvenoSkupina;
+	int BarvenaSkupina;
 public:
 	GradbenoPolje(int i, Igra TrenutnaIgra);//konstruktor
 	//void narisi();
+	void BarvniKvadrat(int i,int barva);
+	void RenderBarva(int barva);
 };
 
 class PosebnoPolje: ILastniskoPolje {
