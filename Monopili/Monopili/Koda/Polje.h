@@ -68,9 +68,12 @@ public:
 
 class ILastniskoPolje: public IPolje {
 protected:
-	Igralec * Lastnik;
+	//Igralec * Lastnik;
 	int cena;
 	int IndexIgralec;
+	int najem;
+	int SteviloParov;
+	int VelikostParov;
 public:
 	virtual void narisi() = 0;
 };
@@ -81,6 +84,8 @@ protected:
 	int cenaHiske;
 	int cenaHotela;
 	int BarvenaSkupina;
+	int SteviloHis;
+	bool Hotel;
 public:
 	GradbenoPolje(int i, Igra TrenutnaIgra);//konstruktor
 	void BarvniKvadrat(int i,int barva);
