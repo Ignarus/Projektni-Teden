@@ -10,3 +10,7 @@ PoljeZAkcijo::PoljeZAkcijo(int i)
 	//if (i == 2){
 	//}
 }
+
+void PoljeZAkcijo::narisi() {
+
+}
