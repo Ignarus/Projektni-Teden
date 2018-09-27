@@ -41,20 +41,57 @@ Igra::Igra(int stIgralcev) {
 		Gumbi.push_back(knof);
 	}
 	for (int i = 0; i < 40; i++) {
-		Polja.push_back(new PosebnoPolje(i, *this));
+		switch (i)
+		{
+		case 0:
+		case 2:
+		case 4:
+		case 7:
+		case 10:
+		case 17:
+		case 20:
+		case 22:
+		case 30:
+		case 33:
+		case 36:
+		case 38:
+			Polja.push_back(new PoljeZAkcijo(i, *this));
+			break;
+		case 5:
+		case 12:
+		case 15:
+		case 25:
+		case 28:
+		case 35:
+			Polja.push_back(new PosebnoPolje(i, *this));
+			break;
+		default:
+			Polja.push_back(new GradbenoPolje(i, *this));
+			break;
+		}
 	}
 }
 
-Igra::~Igra() {
-	for (int i = 0; i < Polja.size();i++) {
-		delete Polja[i];
+/*Igra::~Igra() {
+	for (int i = 0; i < Polja.size(); i++)
+	{
+		delete (Polja[i]);
 	}
-}
+	Polja.clear();
+}*/
 
 void Igra::NarisiVse() {
 	NarisiIgralnoPolje();
 	NarisiPortretIgralcev();
 	NarisiGumbe();
+	NarisiVsaPolja();
+}
+
+void Igra::NarisiVsaPolja() {
+	for (int i = 0; i < 40; i++)
+	{
+		Polja[i]->narisi();
+	}
 }
 
 void Igra::NarisiIgralnoPolje() {
