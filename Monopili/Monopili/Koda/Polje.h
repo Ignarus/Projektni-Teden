@@ -57,7 +57,7 @@ public:
 
 };	
 
-class PoljeZAkcijo: IPolje {
+class PoljeZAkcijo: public IPolje {
 private:
 	SDL_Texture* Slikca;
 	int Vrsta_Akcije;//enum Akcija
@@ -83,9 +83,9 @@ protected:
 	int BarvenaSkupina;
 public:
 	GradbenoPolje(int i, Igra TrenutnaIgra);//konstruktor
-	//void narisi();
 	void BarvniKvadrat(int i,int barva);
 	void RenderBarva(int barva);
+	void narisi();
 };
 
 class PosebnoPolje: public ILastniskoPolje {

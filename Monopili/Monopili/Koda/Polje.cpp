@@ -17,7 +17,7 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 		}
 		else
 		{
-			KvadratPolje.h = tmp.h / 24;
+			KvadratPolje.h = (tmp.h / 24)*2;
 		}
 		KvadratPolje.w = (tmp.w / 24) * 3;
 
@@ -42,7 +42,7 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 			}
 			else
 			{
-				KvadratPolje.w = (tmp.w / 24);
+				KvadratPolje.w = (tmp.w / 24)*2;
 			}
 		}
 		else
@@ -52,11 +52,12 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 				KvadratPolje.y = tmp.y + ((tmp.h / 24)*(21 - (i - 20) * 2));
 				if (i == 30)
 				{
+					KvadratPolje.y = tmp.y + ((tmp.h / 24) * 21);
 					KvadratPolje.h = (tmp.h / 24) * 3;
 				}
 				else
 				{
-					KvadratPolje.h = tmp.h / 24;
+					KvadratPolje.h = (tmp.h / 24)*2;
 				}
 				KvadratPolje.w = (tmp.w / 24) * 3;
 			}
@@ -130,31 +131,31 @@ GradbenoPolje::GradbenoPolje(int i, Igra TrenutnaIgra)
 	if (i < 10)
 	{
 		if (i < 5)
-			BarvenaSkupina = Rjava;
+			BarvniKvadrat(1, Rjava);
 		else
-			BarvenaSkupina = SvetloModra;
+			BarvniKvadrat(1, SvetloModra);
 	}
 	else if (i < 20)
 	{
 		if (i < 15)
-			BarvenaSkupina = Vijolcna;
+			BarvniKvadrat(2, Vijolcna);
 		else
-			BarvenaSkupina = Oranzna;
+			BarvniKvadrat(2, Oranzna);
 	}
 	else if (i < 30)
 	{
 		if (i < 25)
-			BarvenaSkupina = Rdeca;
+			BarvniKvadrat(3, Rdeca);
 		else
-			BarvenaSkupina = Rumena;
+			BarvniKvadrat(3, Rumena);
 	}
 	else if (i < 35)
 	{
-		BarvenaSkupina = Zelena;
+		BarvniKvadrat(4, Zelena);
 	}
 	else
 	{
-		BarvenaSkupina = TemnoModra;
+		BarvniKvadrat(4, TemnoModra);
 	}
 }
 
@@ -224,14 +225,46 @@ void GradbenoPolje::RenderBarva(int barva)
 }
 
 void PoljeZAkcijo::narisi() {
-
+	SDL_RenderDrawRect(gRenderer, &KvadratPolje);
 }
 
 void PosebnoPolje::narisi() {
-
+	SDL_RenderDrawRect(gRenderer, &KvadratPolje);
 }
 
-
-
-
-
+void GradbenoPolje::narisi()
+{
+	if (ID < 10)
+	{
+		if (ID < 5)
+			RenderBarva(Rjava);
+		else
+			RenderBarva(SvetloModra);
+	}
+	else if (ID < 20)
+	{
+		if (ID< 15)
+			RenderBarva(Vijolcna);
+		else
+			RenderBarva(Oranzna);
+	}
+	else if (ID< 30)
+	{
+		if (ID< 25)
+			RenderBarva(Rdeca);
+		else
+			RenderBarva(Rumena);
+	}
+	else if (ID < 35)
+	{
+		RenderBarva(Zelena);
+	}
+	else
+	{
+		RenderBarva(TemnoModra);
+	}
+	SDL_RenderFillRect(gRenderer, &KvadratBarva);
+	SDL_SetRenderDrawColor(gRenderer, 0, 0, 0, 255);
+	SDL_RenderDrawRect(gRenderer, &KvadratBarva);
+	SDL_RenderDrawRect(gRenderer, &KvadratPolje);
+}

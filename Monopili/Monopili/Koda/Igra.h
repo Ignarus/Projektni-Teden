@@ -22,12 +22,13 @@ private:
 public:
 	void UpdateCurzoe(SDL_Event* e);
 	Igra(int stIgralcev);
-	~Igra();
+	//~Igra();
 	void NarisiVse();
 	void NarisiIgralnoPolje();
 	void NarisiPortretIgralcev();
 	void NarisiGumbe();
 	SDL_Rect GetIgralnoPolje();
+	void NarisiVsaPolja();
 };
 
 #endif
