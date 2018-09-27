@@ -37,7 +37,7 @@ Igra::Igra(int stIgralcev) {
 		Igralci.push_back(Novi);
 	}
 	for (int i = 0; i < 3; i++) {
-		Gumb knof(i);
+		Gumb knof(i,"Ukaz "+to_string(i+1));
 		Gumbi.push_back(knof);
 	}
 }
