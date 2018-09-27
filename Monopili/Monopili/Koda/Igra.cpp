@@ -6,6 +6,7 @@ void igra(bool &quit, SDL_Event &e) {
 
 	Igra Trenutna_igra(3);
 
+
 	while (!quit) {
 		while (SDL_PollEvent(&e) != 0)
 		{
@@ -85,6 +86,7 @@ void Igra::NarisiVse() {
 	NarisiPortretIgralcev();
 	NarisiGumbe();
 	NarisiVsaPolja();
+	NarisiFigure();
 }
 
 void Igra::NarisiVsaPolja() {
@@ -117,6 +119,13 @@ void Igra::NarisiGumbe() {
 	}
 }
 
+
+void Igra::NarisiFigure() {
+	for (int i = 0; i < Igralci.size(); i++) {
+		Igralci[i].narisiFiguro(Polja[Igralci[i].getLokacijo()]->getKvadrat());
+	}
+}
+
 void Igra::UpdateCurzoe(SDL_Event* e) {
 	Curzor.handleEvent(e);
 	if (Curzor.getZadnjaAkcija() == LeviGumbGor) {
@@ -134,8 +143,25 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 				SDL_Rect Kvadrat = Gumbi[i].getKvadrat();
 				if (Kvadrat.x < Klik.x && Klik.x < Kvadrat.x + Kvadrat.w && Kvadrat.y < Klik.y && Klik.y < Kvadrat.y + Kvadrat.h) {
 					printf("\n klik: %s \n", Gumbi[i].getUkaz());
+					if (Gumbi[i].getUkaz() == "Ukaz 1") {
+						int ena, dva;
+						ena = (rand() % 6 + 1);
+						dva = (rand() % 6 + 1);
+						Igralci[igralec].premikIgralca( ena + dva );
+						printf("ena: %i dva: %i, lokacija %i \n", ena, dva, Igralci[igralec].getLokacijo());
+						NaslednijIgralec();
+					}
+
 				}
 			}
 		}
+	}
+}
+
+
+void Igra::NaslednijIgralec() {
+	igralec++;
+	if (igralec >= Igralci.size()) {
+		igralec = 0;
 	}
 }

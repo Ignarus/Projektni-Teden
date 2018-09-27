@@ -50,7 +50,7 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 			if (i > 20 && i < 31)
 			{
 				KvadratPolje.x = tmp.x + ((tmp.w / 24) * 21);
-				KvadratPolje.y = tmp.y + ((tmp.h / 24)*(21 - (i - 20) * 2));
+				KvadratPolje.y = tmp.y + ((tmp.h / 24)*(21 - (30-i) * 2));
 				if (i == 30)
 				{
 					KvadratPolje.y = tmp.y + ((tmp.h / 24) * 21);

@@ -19,6 +19,7 @@ private:
 	vector<Gumb> Gumbi;
 	SDL_Rect Igralno_polje;
 	Miska Curzor;
+	int igralec = 0;
 public:
 	void UpdateCurzoe(SDL_Event* e);
 	Igra(int stIgralcev);
@@ -27,8 +28,10 @@ public:
 	void NarisiIgralnoPolje();
 	void NarisiPortretIgralcev();
 	void NarisiGumbe();
+	void NarisiFigure();
 	SDL_Rect GetIgralnoPolje();
 	void NarisiVsaPolja();
+	void NaslednijIgralec();
 };
 
 #endif

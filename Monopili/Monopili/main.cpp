@@ -5,6 +5,7 @@
 int main( int argc, char* args[] ) 
 {
 
+	srand(time(NULL));
 	SDL_SetMainReady();
 
 	//Inicializacija SDL-a 

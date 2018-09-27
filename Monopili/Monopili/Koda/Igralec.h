@@ -23,7 +23,9 @@ public:
 	void narisi();
 	SDL_Rect getKvadrat();
 	string getName();
-	void narisiFiguro(SDL_Rect* Polje);
+	void narisiFiguro(SDL_Rect Polje);
+	int getLokacijo();
+	void premikIgralca(int met);
 };
 
 
