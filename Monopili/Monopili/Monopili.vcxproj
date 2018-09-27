@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Koda\Gumb.cpp" />
     <ClCompile Include="Koda\Igra.cpp" />
     <ClCompile Include="Koda\Igralec.cpp" />
     <ClCompile Include="Koda\Narisi.cpp" />
@@ -27,6 +28,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Koda\Gumb.h" />
     <ClInclude Include="Koda\Igra.h" />
     <ClInclude Include="Koda\Igralec.h" />
     <ClInclude Include="Koda\Narisi.h" />
