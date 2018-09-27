@@ -43,3 +43,13 @@ void Igralec::narisi() {
 	ImeTekst.loadFromRenderedText(ime, Black);
 	ImeTekst.render(Portret.x + (Portret.w / 2) - ImeTekst.getWidth() / 2, Portret.y);
 }
+
+
+SDL_Rect Igralec::getKvadrat() {
+	return Portret;
+}
+
+
+string Igralec::getName() {
+	return ime;
+}

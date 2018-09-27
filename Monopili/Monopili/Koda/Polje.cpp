@@ -179,6 +179,6 @@ PosebnoPolje::PosebnoPolje(int i, Igra TrenutnaIgra)
 
 }
 
-/*void PoljeZAkcijo::narisi() {
+void PoljeZAkcijo::narisi() {
 
-}*/
+}

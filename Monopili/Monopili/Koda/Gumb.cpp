@@ -11,6 +11,7 @@ Gumb::Gumb(int zaporedje, string besedilo) {
 
 	Napis.loadMedia("Roboto-Black.ttf", 25);
 }
+
 void Gumb::narisi() {
 	SDL_SetRenderDrawColor(gRenderer, 0xCD, 0xE6, 0xD0, 0xFF);
 	SDL_RenderFillRect(gRenderer, &Kvadrat);
@@ -20,4 +21,13 @@ void Gumb::narisi() {
 	SDL_Color Black = { 0,0, 0, 255 };
 	Napis.loadFromRenderedText(Ukaz, Black);
 	Napis.render(Kvadrat.x + (Kvadrat.w / 2) - Napis.getWidth() / 2, Kvadrat.y + (Kvadrat.h / 2) - Napis.getHeight() / 2);
+}
+
+SDL_Rect Gumb::getKvadrat() {
+	return Kvadrat;
+}
+
+
+string Gumb::getUkaz() {
+	return Ukaz;
 }
