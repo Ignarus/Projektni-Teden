@@ -27,6 +27,18 @@ enum Posebno
 	Jug
 };
 
+enum Barve
+{
+	Rjava,
+	SvetloModra,
+	Vijolcna,
+	Oranzna,
+	Rdeca,
+	Rumena,
+	Zelena,
+	TemnoModra
+};
+
 class Igra;
 
 class IPolje {
@@ -37,35 +49,9 @@ public:
 	SDL_Rect getKvadrat();//vrne rect vrednosti
 	//virtual void action() = 0;
 	virtual void narisi() = 0;
-	void KvadratPodatki(int i, Igra TrenutnaIgra);
+	void KvadratPodatki(int i, Igra TrenutnaIgra);//doloci rect x,y,h,w
 
-};
-
-/*referenca oz. zaèasno
-
-class IgralnaPovrsina : IPolje {
-public:
-	IgralnaPovrsina() {
-		int w, h;
-		ID = 0;
-		SDL_GetWindowSize(SDL_Window* ImeNasegaOkna, w, h);//zdi se mi da tko nekako dela e ne pa mal priredim
-		KvadratPolje.x = (w / 16) * (9/2);
-		KvadratPolje.y = (h / 9);
-		KvadratPolje.width = (w / 16) * 7; //razmerna širina igrlane plošèe
-		if (((h/9)*5) < KvadratPolje.width)
-		{
-			KvadratPolje.height = (h / 9) * 5;
-			KvadratPolje.width = (w / 16) * 7;
-		}
-		else
-		{
-			KvadratPolje.height = KvadratPolje.width;
-
-		}
-	}
-};
-
-Konec reference*/
+};	
 
 class PoljeZAkcijo: IPolje {
 private:
@@ -76,22 +62,16 @@ public:
 	void narisi();
 };
 
-/*dodano
-class PoljeKot :PoljeZAkcijo {
-	int Koti;//doloèi kateri kot (0=start,1=Zapor,2=Parking,3=Pojdi v Zapor)
-
-};
-*/
-
 class ILastniskoPolje: IPolje {
-private:
+protected:
 	int cena;
 	int IndexIgralec;
 public:
-	virtual void narisi() = 0;
+	//virtual void narisi() = 0;
+	void KvadratPodatki(int i, Igra TrenutnaIgra);
 };
 
-class GradbenoPolje: ILastniskoPolje {
+class GradbenoPolje: ILastniskoPolje{
 protected:
 	//barva
 	SDL_Rect KvadratBarva;//Katero barveno skupino spada izrisat
@@ -100,7 +80,7 @@ protected:
 	int BarvenoSkupina;
 public:
 	GradbenoPolje(int i, Igra TrenutnaIgra);//konstruktor
-	void narisi();
+	//void narisi();
 };
 
 class PosebnoPolje: ILastniskoPolje {
@@ -109,7 +89,7 @@ private:
 	int VrstaPolja;//enum Posebno
 public:
 	PosebnoPolje(int i, Igra TrenutnaIgra);//konstruktor
-	void narisi();
+	//void narisi();
 };
 
 #endif

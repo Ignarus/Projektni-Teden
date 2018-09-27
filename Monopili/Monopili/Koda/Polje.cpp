@@ -70,6 +70,71 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 	}
 }
 
+void ILastniskoPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
+{
+	SDL_Rect tmp = TrenutnaIgra.GetIgralnoPolje();
+	if (i < 10) {
+		KvadratPolje.x = tmp.x;
+		KvadratPolje.y = tmp.y + ((tmp.h / 24)*(21 - i * 2));
+		if (i == 0)
+		{
+			KvadratPolje.h = (tmp.h / 24) * 3;
+		}
+		else
+		{
+			KvadratPolje.h = tmp.h / 24;
+		}
+		KvadratPolje.w = (tmp.w / 24) * 3;
+
+	}
+	else
+	{
+		if (i > 9 && i < 21)
+		{
+			KvadratPolje.y = tmp.y;
+			KvadratPolje.h = (tmp.h / 24) * 3;
+			if (i == 10)
+			{
+				KvadratPolje.x = tmp.x;
+			}
+			else
+			{
+				KvadratPolje.x = tmp.x + ((tmp.w / 24)*(3 + (i - 11) * 2));
+			}
+			if (i % 10 == 0)
+			{
+				KvadratPolje.w = (tmp.w / 24) * 3;
+			}
+			else
+			{
+				KvadratPolje.w = (tmp.w / 24);
+			}
+		}
+		else
+			if (i > 20 && i < 31)
+			{
+				KvadratPolje.x = tmp.x + ((tmp.w / 24) * 21);
+				KvadratPolje.y = tmp.y + ((tmp.h / 24)*(21 - (i - 20) * 2));
+				if (i == 30)
+				{
+					KvadratPolje.h = (tmp.h / 24) * 3;
+				}
+				else
+				{
+					KvadratPolje.h = tmp.h / 24;
+				}
+				KvadratPolje.w = (tmp.w / 24) * 3;
+			}
+			else
+			{
+				KvadratPolje.x = tmp.x + ((tmp.w / 24)*(21 - (i - 30) * 2));
+				KvadratPolje.y = tmp.y + ((tmp.h / 24) * 21);
+				KvadratPolje.h = (tmp.h / 24) * 3;
+				KvadratPolje.w = (tmp.w / 24) * 2;
+			}
+	}
+}
+
 PoljeZAkcijo::PoljeZAkcijo(int i, Igra TrenutnaIgra)
 {
 	KvadratPodatki(i, TrenutnaIgra);
@@ -108,6 +173,12 @@ PoljeZAkcijo::PoljeZAkcijo(int i, Igra TrenutnaIgra)
 	}
 }
 
-void PoljeZAkcijo::narisi() {
+PosebnoPolje::PosebnoPolje(int i, Igra TrenutnaIgra)
+{
+	KvadratPodatki(i, TrenutnaIgra);
 
 }
+
+/*void PoljeZAkcijo::narisi() {
+
+}*/
