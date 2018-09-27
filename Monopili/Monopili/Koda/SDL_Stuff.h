@@ -1,7 +1,6 @@
 #ifndef SDL_STUFF_H
 #define SDL_STUFF_H
 
-
 #include <SDL.h>
 #include <SDL_image.h> 
 #include <SDL_ttf.h>
@@ -13,8 +12,8 @@
 
 using namespace std;
 
-const int SCREEN_WIDTH = 1280;
-const int SCREEN_HEIGHT = 720;
+const int SCREEN_WIDTH = 1280;//placeholder
+const int SCREEN_HEIGHT = 720;//placeholder
 
 //Starts up SDL and creates window
 bool init();
