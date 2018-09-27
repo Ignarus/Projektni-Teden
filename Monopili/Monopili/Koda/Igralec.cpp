@@ -32,8 +32,8 @@ Igralec::Igralec(string ime, int igralec) {
 		Portret.h = SCREEN_HEIGHT / 9 * 4;
 		break;
 	}
+	Slikca.loadFromFile("Slike/Igralec" + to_string(steviloIgralca+1));
 }
-
 
 void Igralec::narisi() {
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xBB, 0xBB, 0xFF);
@@ -42,15 +42,18 @@ void Igralec::narisi() {
 	SDL_RenderDrawRect(gRenderer, &Portret);
 	SDL_Color Black = { 0,0, 0, 255 };
 	ImeTekst.loadFromRenderedText(ime, Black);
-	ImeTekst.render(Portret.x + (Portret.w / 2) - ImeTekst.getWidth() / 2, Portret.y);
-}
+	ImeTekst.render(Portret.x, Portret.y);
 
+}
 
 SDL_Rect Igralec::getKvadrat() {
 	return Portret;
 }
 
-
 string Igralec::getName() {
 	return ime;
+}
+
+void Igralec::narisiFiguro(SDL_Rect* Polje){
+
 }

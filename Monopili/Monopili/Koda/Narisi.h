@@ -25,6 +25,22 @@ private:
 	int mHeight;
 };
 
+class Texture {
+public:
+	Texture();
+	~Texture();
+	bool loadFromFile(std::string path);
+	void free();
+	void sizechange(float changesize);
+	void render(int x, int y, double angle = 0.0);
+	void resize(float size);
+	int getWidth();
+	int getHeight();
+protected:
+	SDL_Texture * mTexture;
+	int mWidth;
+	int mHeight;
+};
 
 #endif
 

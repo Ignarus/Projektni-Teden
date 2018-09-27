@@ -87,3 +87,90 @@ int Text::getWidth() {
 int Text::getHeight() {
 	return mHeight;
 }
+
+
+Texture::Texture()
+{
+	//Initialize 
+	mTexture = NULL;
+	mWidth = 0;
+	mHeight = 0;
+}
+Texture::~Texture()
+{
+	//Deallocate 
+	free();
+}
+void Texture::free()
+{
+	if (mTexture != NULL)
+	{
+		SDL_DestroyTexture(mTexture);
+		mTexture = NULL;
+		mWidth = 0;
+		mHeight = 0;
+	}
+}
+bool Texture::loadFromFile(std::string path)
+{
+	//Get rid of preexisting texture 
+	free();
+	//The final texture 
+	SDL_Texture* newTexture = NULL;
+	//Load image at specified path 
+	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
+	if (loadedSurface == NULL)
+	{
+		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+	}
+	else
+	{
+		//Color key image 
+		SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0xFF, 0xFF, 0xFF));
+		//Create texture from surface pixels 
+		newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
+		if (newTexture == NULL)
+		{
+			printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
+		}
+		else
+		{
+			//Get image dimensions
+			mWidth = loadedSurface->w;
+			mHeight = loadedSurface->h;
+		}
+		//Get rid of old loaded surface 
+		SDL_FreeSurface(loadedSurface);
+	}
+	//Return success 
+	mTexture = newTexture;
+	return mTexture != NULL;
+}
+void Texture::sizechange(float changesize) {
+	mWidth *= changesize;
+	mHeight *= changesize;
+}
+void Texture::resize(float size) {
+	mWidth = size;
+	mHeight = size;
+}
+int Texture::getWidth()
+{
+	return mWidth;
+}
+int Texture::getHeight()
+{
+	return mHeight;
+}
+void Texture::render(int x, int y, double angle)
+{
+	SDL_Rect* clip = NULL;
+	SDL_Point* center = NULL;
+	SDL_Rect renderQuad = { x, y, mWidth, mHeight };
+	if (clip != NULL)
+	{
+		renderQuad.w = clip->w;
+		renderQuad.h = clip->h;
+	}
+	SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, angle, center, SDL_FLIP_NONE);
+}

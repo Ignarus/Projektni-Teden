@@ -17,11 +17,13 @@ private:
 	SDL_Rect Portret;
 	Text ImeTekst;
 	int lokacija;
+	Texture Slikca;
 public:
 	Igralec(string ime, int igralec);
 	void narisi();
 	SDL_Rect getKvadrat();
 	string getName();
+	void narisiFiguro(SDL_Rect* Polje);
 };
 
 
