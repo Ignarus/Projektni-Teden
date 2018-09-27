@@ -9,10 +9,11 @@ enum AkcijeMiske {
 	LeviGumbGor
 };
 
-class LButton {
+class Miska {
 public: 
-	LButton();
+	Miska();
 	void handleEvent(SDL_Event* e);
+	SDL_Point getPozicija();
 	int getZadnjaAkcija();
 private:
 	SDL_Point PozicijaMiske;
