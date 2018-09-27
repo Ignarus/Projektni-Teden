@@ -17,7 +17,7 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 		}
 		else
 		{
-			KvadratPolje.h = tmp.h / 24;
+			KvadratPolje.h = (tmp.h / 24)*2;
 		}
 		KvadratPolje.w = (tmp.w / 24) * 3;
 
@@ -42,7 +42,7 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 			}
 			else
 			{
-				KvadratPolje.w = (tmp.w / 24);
+				KvadratPolje.w = (tmp.w / 24)*2;
 			}
 		}
 		else
@@ -52,11 +52,12 @@ void IPolje::KvadratPodatki(int i, Igra TrenutnaIgra)
 				KvadratPolje.y = tmp.y + ((tmp.h / 24)*(21 - (i - 20) * 2));
 				if (i == 30)
 				{
+					KvadratPolje.y = tmp.y + ((tmp.h / 24) * 21);
 					KvadratPolje.h = (tmp.h / 24) * 3;
 				}
 				else
 				{
-					KvadratPolje.h = tmp.h / 24;
+					KvadratPolje.h = (tmp.h / 24)*2;
 				}
 				KvadratPolje.w = (tmp.w / 24) * 3;
 			}
