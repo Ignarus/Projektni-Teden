@@ -112,15 +112,26 @@ PoljeZAkcijo::PoljeZAkcijo(int i, Igra TrenutnaIgra)
 
 PosebnoPolje::PosebnoPolje(int i, Igra TrenutnaIgra)
 {
+	IndexIgralec = 0;
+	SteviloParov = 0;
 	KvadratPodatki(i, TrenutnaIgra);
 	switch (i)
 	{
 	case 12:
+		VelikostParov = 2;
+		cena = 1200;
+		najem = 400;
 		VrstaPolja = Elektrika;
 		break;
 	case 28:
+		VelikostParov = 2;
+		cena = 1200;
+		najem = 400;
 		VrstaPolja = Voda;
 	default:
+		VelikostParov = 4;
+		cena = 1000;
+		najem = 300;
 		VrstaPolja = Vlak;
 		break;
 	}
@@ -128,34 +139,96 @@ PosebnoPolje::PosebnoPolje(int i, Igra TrenutnaIgra)
 
 GradbenoPolje::GradbenoPolje(int i, Igra TrenutnaIgra)
 {
+	IndexIgralec = 0;
+	SteviloParov = 0;
 	KvadratPodatki(i, TrenutnaIgra);
 	if (i < 10)
 	{
 		if (i < 5)
+		{
+			cena = 500;
+			najem = 150;
+			VelikostParov = 2;
+			BarvenaSkupina = Rjava;
+			cenaHiske = 100;
+			cenaHotela = 150;
 			BarvniKvadrat(1, Rjava);
+		}
 		else
+		{
+			cena = 800;
+			najem = 250;
+			VelikostParov = 3;
+			BarvenaSkupina = SvetloModra;
+			cenaHiske = 125;
+			cenaHotela = 200;
 			BarvniKvadrat(1, SvetloModra);
+		}
 	}
 	else if (i < 20)
 	{
 		if (i < 15)
+		{
+			cena = 1100;
+			najem = 400;
+			VelikostParov = 3;
+			BarvenaSkupina = Vijolcna;
+			cenaHiske = 150;
+			cenaHotela = 250;
 			BarvniKvadrat(2, Vijolcna);
+		}
 		else
+		{
+			cena = 1400;
+			najem = 500;
+			VelikostParov = 3;
+			BarvenaSkupina = Oranzna;
+			cenaHiske = 175;
+			cenaHotela = 300;
 			BarvniKvadrat(2, Oranzna);
+		}
 	}
 	else if (i < 30)
 	{
 		if (i < 25)
+		{
+			cena = 1700;
+			najem = 650;
+			VelikostParov = 3;
+			BarvenaSkupina = Rdeca;
+			cenaHiske = 200;
+			cenaHotela = 350;
 			BarvniKvadrat(3, Rdeca);
+		}
 		else
+		{
+			cena = 2000;
+			najem = 800;
+			VelikostParov = 3;
+			BarvenaSkupina = Rumena;
+			cenaHiske = 225;
+			cenaHotela = 400;
 			BarvniKvadrat(3, Rumena);
+		}
 	}
 	else if (i < 35)
 	{
+		cena = 2300;
+		najem = 900;
+		VelikostParov = 3;
+		BarvenaSkupina = Zelena;
+		cenaHiske = 250;
+		cenaHotela = 450;
 		BarvniKvadrat(4, Zelena);
 	}
 	else
 	{
+		cena = 2600;
+		najem = 1000;
+		VelikostParov = 2;
+		BarvenaSkupina = TemnoModra;
+		cenaHiske = 275;
+		cenaHotela = 550;
 		BarvniKvadrat(4, TemnoModra);
 	}
 }
@@ -208,10 +281,10 @@ void GradbenoPolje::RenderBarva(int barva)
 	case Oranzna:
 		SDL_SetRenderDrawColor(gRenderer, 255, 102, 0, 255);
 		break;
-	case Rumena:
+	case Rdeca:
 		SDL_SetRenderDrawColor(gRenderer, 255, 0, 0, 255);
 		break;
-	case Rdeca:
+	case Rumena:
 		SDL_SetRenderDrawColor(gRenderer, 255, 255, 51, 255);
 		break;
 	case Zelena:
