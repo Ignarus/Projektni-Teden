@@ -27,6 +27,8 @@ enum Posebno
 	Jug
 };
 
+class Igra;
+
 class IPolje {
 protected:
 	int ID;
@@ -35,6 +37,8 @@ public:
 	SDL_Rect getKvadrat();//vrne rect vrednosti
 	//virtual void action() = 0;
 	virtual void narisi() = 0;
+	void KvadratPodatki(int i, Igra TrenutnaIgra);
+
 };
 
 /*referenca oz. zaèasno
@@ -68,7 +72,7 @@ private:
 	SDL_Texture* Slikca;
 	int Vrsta_Akcije;//enum Akcija
 public:
-	PoljeZAkcijo(int i);//konstruktor
+	PoljeZAkcijo(int i, Igra TrenutnaIgra);//konstruktor
 	void narisi();
 };
 
@@ -95,7 +99,7 @@ protected:
 	int cenaHotela;
 	int BarvenoSkupina;
 public:
-	GradbenoPolje(int i);//konstruktor
+	GradbenoPolje(int i, Igra TrenutnaIgra);//konstruktor
 	void narisi();
 };
 
@@ -104,7 +108,7 @@ private:
 	SDL_Texture * Slikca;
 	int VrstaPolja;//enum Posebno
 public:
-	PosebnoPolje(int i);//konstruktor
+	PosebnoPolje(int i, Igra TrenutnaIgra);//konstruktor
 	void narisi();
 };
 
