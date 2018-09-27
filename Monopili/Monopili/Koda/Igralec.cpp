@@ -58,7 +58,7 @@ string Igralec::getName() {
 
 void Igralec::narisiFiguro(SDL_Rect Polje){
 	Slikca.loadFromFile("Slike/Igralec" + to_string(steviloIgralca + 1) + ".png");
-	Slikca.resize(Polje.w < Polje.h ? Polje.w / 3 : Polje.h / 3);
+	Slikca.resize(Polje.w > Polje.h ? Polje.w / 5 : Polje.h / 5);
 	switch (steviloIgralca) {
 	case 0:
 		Slikca.render(Polje.x, Polje.y, 0);
