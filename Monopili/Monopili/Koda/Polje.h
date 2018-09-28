@@ -7,7 +7,7 @@
 
 //Mankajo cene
 
-enum Akciija
+enum Akcija
 {
 	Zacetek,
 	DrzavnaBanka,
@@ -16,12 +16,14 @@ enum Akciija
 	Zapor,
 	Parking,
 	PojdiZapor,
-	DavekNaPremozenje
+	DavekNaPremozenje,
+	Kupi,
+	Placaj
 };
 
 enum Posebno
 {
-	//Zahod,
+	//Zahod
 	Elektrika,
 	Vlak,
 	//Sever,
@@ -51,7 +53,7 @@ protected:
 	SDL_Rect KvadratPolje;//polje mesta
 public:
 	SDL_Rect getKvadrat();//vrne rect vrednosti
-	//virtual void action() = 0;
+	virtual void akcija(int dejanje) = 0;
 	virtual void narisi() = 0;
 	void KvadratPodatki(int i, Igra TrenutnaIgra);//doloci rect x,y,h,w
 
@@ -64,6 +66,7 @@ private:
 public:
 	PoljeZAkcijo(int i, Igra TrenutnaIgra);//konstruktor
 	void narisi();
+	void akcija(int dejanje);
 };
 
 class ILastniskoPolje: public IPolje {
@@ -91,6 +94,7 @@ public:
 	void BarvniKvadrat(int i,int barva);
 	void RenderBarva(int barva);
 	void narisi();
+	void akcija(int dejanje);
 };
 
 class PosebnoPolje: public ILastniskoPolje {
@@ -100,6 +104,7 @@ private:
 public:
 	PosebnoPolje(int i, Igra TrenutnaIgra);//konstruktor
 	void narisi();
+	void akcija(int dejanje);
 };
 
 #endif

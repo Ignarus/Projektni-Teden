@@ -342,3 +342,54 @@ void GradbenoPolje::narisi()
 	SDL_RenderDrawRect(gRenderer, &KvadratBarva);
 	SDL_RenderDrawRect(gRenderer, &KvadratPolje);
 }
+
+void PoljeZAkcijo::akcija(int dejanje)
+{
+	switch (Vrsta_Akcije)
+	{
+	case Zacetek:
+		break;
+	case DrzavnaBanka:
+		break;
+	case DavekNaDohodek	:
+		break;
+	case Piloznost:
+		break;
+	case Zapor:
+		break;
+	case Parking:
+		break;
+	case PojdiZapor:
+		break;
+	case DavekNaPremozenje:
+		break;
+	default:
+		break;
+	}
+}
+
+void PosebnoPolje::akcija(int dejanje)
+{
+	switch (dejanje)
+	{
+	case Kupi:
+		break;
+	case Placaj:
+		break;
+	default:
+		break;
+	}
+}
+
+void GradbenoPolje::akcija(int dejanje)
+{
+	switch (dejanje)
+	{
+	case Kupi:
+		break;
+	case Placaj:
+		break;
+	default:
+		break;
+	}
+}
