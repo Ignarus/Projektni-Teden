@@ -38,8 +38,14 @@ Igra::Igra(int stIgralcev) {
 		Igralci.push_back(Novi);
 	}
 	for (int i = 0; i < 3; i++) {
-		Gumb knof(i,"Ukaz "+to_string(i+1));
-		Gumbi.push_back(knof);
+		if (i == 0) {
+			Gumb knof(i, "Vrzi");
+			Gumbi.push_back(knof);
+		}
+		else{
+			Gumb knof(i, "Ukaz " + to_string(i + 1));
+			Gumbi.push_back(knof);
+		}
 	}
 	for (int i = 0; i < 40; i++) {
 		switch (i)
@@ -148,10 +154,13 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 						ena = (rand() % 6 + 1);
 						dva = (rand() % 6 + 1);
 						Igralci[igralec].premikIgralca( ena + dva );
-						NaslednijIgralec();
+						Gumbi[i].spremeniUkaz("Koncaj rundo");
+						break;
 					}
 					if (Gumbi[i].getUkaz() == "Koncaj rundo") {
-
+						NaslednijIgralec();
+						Gumbi[i].spremeniUkaz("Vrzi");
+						break;
 					}
 				}
 			}
