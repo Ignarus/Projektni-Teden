@@ -172,7 +172,7 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 						case 33:
 						case 36:
 						case 38:
-							Polja[Igralci[igralec].getLokacijo()]->akcija(Zacetek);
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Zacetek,*this);
 							break;
 						case 5:
 						case 12:
@@ -180,10 +180,10 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 						case 25:
 						case 28:
 						case 35:
-							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj);
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj,*this);
 							break;
 						default:
-							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj);
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj,*this);
 							break;
 						}
 						Gumbi[i].spremeniUkaz("Koncaj rundo");
