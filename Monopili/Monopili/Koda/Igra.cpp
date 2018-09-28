@@ -34,7 +34,7 @@ Igra::Igra(int stIgralcev) {
 	Igralno_polje.w = SCREEN_WIDTH / 16 * 7;
 	Igralno_polje.h = SCREEN_HEIGHT / 9 * 7;
 	for (int i = 0; i < stIgralcev; i++) {
-		Igralec Novi(to_string(i+1),i);
+		Igralec Novi("Igralec "+to_string(i+1),i);
 		Igralci.push_back(Novi);
 	}
 	for (int i = 0; i < 3; i++) {
@@ -109,7 +109,7 @@ SDL_Rect Igra::GetIgralnoPolje() {
 
 void Igra::NarisiPortretIgralcev() {
 	for (int i = 0; i < Igralci.size(); i++) {
-		Igralci[i].narisi();
+		Igralci[i].narisi(igralec==i);
 	}
 }
 
@@ -143,15 +143,16 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 				SDL_Rect Kvadrat = Gumbi[i].getKvadrat();
 				if (Kvadrat.x < Klik.x && Klik.x < Kvadrat.x + Kvadrat.w && Kvadrat.y < Klik.y && Klik.y < Kvadrat.y + Kvadrat.h) {
 					printf("\n klik: %s \n", Gumbi[i].getUkaz());
-					if (Gumbi[i].getUkaz() == "Ukaz 1") {
+					if (Gumbi[i].getUkaz() == "Vrzi") {
 						int ena, dva;
 						ena = (rand() % 6 + 1);
 						dva = (rand() % 6 + 1);
 						Igralci[igralec].premikIgralca( ena + dva );
-						printf("ena: %i dva: %i, lokacija %i \n", ena, dva, Igralci[igralec].getLokacijo());
 						NaslednijIgralec();
 					}
+					if (Gumbi[i].getUkaz() == "Koncaj rundo") {
 
+					}
 				}
 			}
 		}

@@ -20,7 +20,7 @@ private:
 	Texture Slikca;
 public:
 	Igralec(string ime, int igralec);
-	void narisi();
+	void narisi(bool naVrsti);
 	SDL_Rect getKvadrat();
 	string getName();
 	void narisiFiguro(SDL_Rect Polje);
