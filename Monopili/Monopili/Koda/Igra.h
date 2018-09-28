@@ -32,6 +32,7 @@ public:
 	SDL_Rect GetIgralnoPolje();
 	void NarisiVsaPolja();
 	void NaslednijIgralec();
+	Igralec getTrenutniIgralec();
 };
 
 #endif

@@ -388,6 +388,9 @@ void GradbenoPolje::akcija(int dejanje, Igra trenutnaIgra)
 	case Kupi:
 		break;
 	case Placaj:
+		if (Lastnik != NULL) {
+
+		}
 		break;
 	default:
 		break;
