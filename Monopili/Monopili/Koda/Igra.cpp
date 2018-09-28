@@ -34,7 +34,7 @@ Igra::Igra(int stIgralcev) {
 	Igralno_polje.w = SCREEN_WIDTH / 16 * 7;
 	Igralno_polje.h = SCREEN_HEIGHT / 9 * 7;
 	for (int i = 0; i < stIgralcev; i++) {
-		Igralec Novi(to_string(i+1),i);
+		Igralec Novi("Igralec "+to_string(i+1),i);
 		Igralci.push_back(Novi);
 	}
 	for (int i = 0; i < 3; i++) {
@@ -109,7 +109,7 @@ SDL_Rect Igra::GetIgralnoPolje() {
 
 void Igra::NarisiPortretIgralcev() {
 	for (int i = 0; i < Igralci.size(); i++) {
-		Igralci[i].narisi();
+		Igralci[i].narisi(igralec==i);
 	}
 }
 

@@ -68,7 +68,7 @@ public:
 
 class ILastniskoPolje: public IPolje {
 protected:
-	//Igralec * Lastnik;
+	Igralec * Lastnik;
 	int cena;
 	int IndexIgralec;
 	int najem;

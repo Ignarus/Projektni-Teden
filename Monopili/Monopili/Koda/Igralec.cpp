@@ -4,6 +4,7 @@
 Igralec::Igralec(string ime, int igralec) {
 	this->ime = ime;
 	lokacija = 0;
+	denar = 4000;
 	ImeTekst.loadMedia("Roboto-Black.ttf", 35);
 	steviloIgralca = igralec;
 	switch (igralec){
@@ -34,7 +35,16 @@ Igralec::Igralec(string ime, int igralec) {
 	}
 }
 
-void Igralec::narisi() {
+void Igralec::narisi(bool naVrsti) {
+	if (naVrsti) {
+		SDL_Rect Poudarek= Portret;
+		Poudarek.x -= 3;
+		Poudarek.y -= 3;
+		Poudarek.w += 6;
+		Poudarek.h += 6;
+		SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+		SDL_RenderFillRect(gRenderer, &Poudarek);
+	}
 	Slikca.loadFromFile("Slike/Igralec" + to_string(steviloIgralca + 1)+".png");
 	Slikca.resize(60);
 	SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xBB, 0xBB, 0xFF);
@@ -44,6 +54,8 @@ void Igralec::narisi() {
 	SDL_Color Black = { 0,0, 0, 255 };
 	ImeTekst.loadFromRenderedText(ime, Black);
 	ImeTekst.render(Portret.x + Portret.w/30, Portret.y);
+	ImeTekst.loadFromRenderedText("Denar: " + to_string(denar), Black);
+	ImeTekst.render(Portret.x + Portret.w / 30, Portret.y + ImeTekst.getHeight());
 	Slikca.render(Portret.x+ Portret.w- Slikca.getWidth() - 10, Portret.y +10 , 0);
 
 }
@@ -83,6 +95,8 @@ int Igralec::getLokacijo() {
 
 void Igralec::premikIgralca(int met) {
 	lokacija += met;
-	if (lokacija >= 40)
+	if (lokacija >= 40) {
 		lokacija -= 40;
+		denar += 750;
+	}
 }
