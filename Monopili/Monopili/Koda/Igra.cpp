@@ -42,6 +42,10 @@ Igra::Igra(int stIgralcev) {
 			Gumb knof(i, "Vrzi");
 			Gumbi.push_back(knof);
 		}
+		else if(i == 1){
+			Gumb knof(i, "Kupi");
+			Gumbi.push_back(knof);
+		}
 		else{
 			Gumb knof(i, "Ukaz " + to_string(i + 1));
 			Gumbi.push_back(knof);
@@ -160,6 +164,9 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 					if (Gumbi[i].getUkaz() == "Koncaj rundo") {
 						NaslednijIgralec();
 						Gumbi[i].spremeniUkaz("Vrzi");
+						break;
+					}
+					if (Gumbi[i].getUkaz() == "Kupi") {
 						break;
 					}
 				}
