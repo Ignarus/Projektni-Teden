@@ -343,7 +343,7 @@ void GradbenoPolje::narisi()
 	SDL_RenderDrawRect(gRenderer, &KvadratPolje);
 }
 
-void PoljeZAkcijo::akcija(int dejanje)
+void PoljeZAkcijo::akcija(int dejanje, Igra trenutnaIgra)
 {
 	switch (Vrsta_Akcije)
 	{
@@ -368,7 +368,7 @@ void PoljeZAkcijo::akcija(int dejanje)
 	}
 }
 
-void PosebnoPolje::akcija(int dejanje)
+void PosebnoPolje::akcija(int dejanje, Igra trenutnaIgra)
 {
 	switch (dejanje)
 	{
@@ -381,7 +381,7 @@ void PosebnoPolje::akcija(int dejanje)
 	}
 }
 
-void GradbenoPolje::akcija(int dejanje)
+void GradbenoPolje::akcija(int dejanje, Igra trenutnaIgra)
 {
 	switch (dejanje)
 	{

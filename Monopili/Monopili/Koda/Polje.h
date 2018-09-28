@@ -53,7 +53,7 @@ protected:
 	SDL_Rect KvadratPolje;//polje mesta
 public:
 	SDL_Rect getKvadrat();//vrne rect vrednosti
-	virtual void akcija(int dejanje) = 0;
+	virtual void akcija(int dejanje, Igra trenutnaIgra) = 0;
 	virtual void narisi() = 0;
 	void KvadratPodatki(int i, Igra TrenutnaIgra);//doloci rect x,y,h,w
 
@@ -66,7 +66,7 @@ private:
 public:
 	PoljeZAkcijo(int i, Igra TrenutnaIgra);//konstruktor
 	void narisi();
-	void akcija(int dejanje);
+	void akcija(int dejanje, Igra trenutnaIgra);
 };
 
 class ILastniskoPolje: public IPolje {
@@ -94,7 +94,7 @@ public:
 	void BarvniKvadrat(int i,int barva);
 	void RenderBarva(int barva);
 	void narisi();
-	void akcija(int dejanje);
+	void akcija(int dejanje, Igra trenutnaIgra);
 };
 
 class PosebnoPolje: public ILastniskoPolje {
@@ -104,7 +104,7 @@ private:
 public:
 	PosebnoPolje(int i, Igra TrenutnaIgra);//konstruktor
 	void narisi();
-	void akcija(int dejanje);
+	void akcija(int dejanje, Igra trenutnaIgra);
 };
 
 #endif
