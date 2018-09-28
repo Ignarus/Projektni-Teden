@@ -100,3 +100,11 @@ void Igralec::premikIgralca(int met) {
 		denar += 750;
 	}
 }
+
+
+void Igralec::prihodek(int denar) {
+	this->denar += denar;
+}
+void Igralec::odhodek(int denar) {
+	this->denar -= denar;
+}

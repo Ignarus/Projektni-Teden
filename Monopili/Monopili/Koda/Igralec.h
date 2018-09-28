@@ -26,6 +26,8 @@ public:
 	void narisiFiguro(SDL_Rect Polje);
 	int getLokacijo();
 	void premikIgralca(int met);
+	void prihodek(int denar);
+	void odhodek(int denar);
 };
 
 
