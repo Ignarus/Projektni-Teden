@@ -143,15 +143,16 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 				SDL_Rect Kvadrat = Gumbi[i].getKvadrat();
 				if (Kvadrat.x < Klik.x && Klik.x < Kvadrat.x + Kvadrat.w && Kvadrat.y < Klik.y && Klik.y < Kvadrat.y + Kvadrat.h) {
 					printf("\n klik: %s \n", Gumbi[i].getUkaz());
-					if (Gumbi[i].getUkaz() == "Ukaz 1") {
+					if (Gumbi[i].getUkaz() == "Vrzi") {
 						int ena, dva;
 						ena = (rand() % 6 + 1);
 						dva = (rand() % 6 + 1);
 						Igralci[igralec].premikIgralca( ena + dva );
-						printf("ena: %i dva: %i, lokacija %i \n", ena, dva, Igralci[igralec].getLokacijo());
 						NaslednijIgralec();
 					}
+					if (Gumbi[i].getUkaz() == "Koncaj rundo") {
 
+					}
 				}
 			}
 		}
