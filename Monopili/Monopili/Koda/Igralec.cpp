@@ -56,7 +56,9 @@ void Igralec::narisi(bool naVrsti) {
 	ImeTekst.render(Portret.x + Portret.w/30, Portret.y);
 	ImeTekst.loadFromRenderedText("Denar: " + to_string(denar), Black);
 	ImeTekst.render(Portret.x + Portret.w / 30, Portret.y + ImeTekst.getHeight());
-	Slikca.render(Portret.x+ Portret.w- Slikca.getWidth() - 10, Portret.y +10 , 0);
+	if (!bankrot) {
+		Slikca.render(Portret.x + Portret.w - Slikca.getWidth() - 10, Portret.y + 10, 0);
+	}
 
 }
 
@@ -69,21 +71,23 @@ string Igralec::getName() {
 }
 
 void Igralec::narisiFiguro(SDL_Rect Polje){
-	Slikca.loadFromFile("Slike/Igralec" + to_string(steviloIgralca + 1) + ".png");
-	Slikca.resize(Polje.w > Polje.h ? Polje.w / 5 : Polje.h / 5);
-	switch (steviloIgralca) {
-	case 0:
-		Slikca.render(Polje.x, Polje.y, 0);
-		break;
-	case 1:
-		Slikca.render(Polje.x + Polje.w/2, Polje.y, 0);
-		break;
-	case 2:
-		Slikca.render(Polje.x, Polje.y + Polje.h / 2, 0);
-		break;
-	case 3:
-		Slikca.render(Polje.x + Polje.w / 2, Polje.y + Polje.h / 2, 0);
-		break;
+	if (!bankrot) {
+		Slikca.loadFromFile("Slike/Igralec" + to_string(steviloIgralca + 1) + ".png");
+		Slikca.resize(Polje.w > Polje.h ? Polje.w / 5 : Polje.h / 5);
+		switch (steviloIgralca) {
+		case 0:
+			Slikca.render(Polje.x, Polje.y, 0);
+			break;
+		case 1:
+			Slikca.render(Polje.x + Polje.w / 2, Polje.y, 0);
+			break;
+		case 2:
+			Slikca.render(Polje.x, Polje.y + Polje.h / 2, 0);
+			break;
+		case 3:
+			Slikca.render(Polje.x + Polje.w / 2, Polje.y + Polje.h / 2, 0);
+			break;
+		}
 	}
 }
 
@@ -97,7 +101,7 @@ void Igralec::premikIgralca(int met) {
 	lokacija += met;
 	if (lokacija >= 40) {
 		lokacija -= 40;
-		denar += 750;
+		denar -= 750;
 	}
 }
 
@@ -107,4 +111,21 @@ void Igralec::prihodek(int denar) {
 }
 void Igralec::odhodek(int denar) {
 	this->denar -= denar;
+}
+
+
+void Igralec::kupil(IPolje* novaLastnina) {
+	imam.push_back(novaLastnina);
+}
+
+
+void Igralec::preveriBankrot() {
+	if (denar<0) {
+		bankrot = true;
+	}
+}
+
+
+bool Igralec::aktiven() {
+	return !bankrot;
 }

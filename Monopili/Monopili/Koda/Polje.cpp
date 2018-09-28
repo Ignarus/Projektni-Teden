@@ -343,7 +343,7 @@ void GradbenoPolje::narisi()
 	SDL_RenderDrawRect(gRenderer, &KvadratPolje);
 }
 
-void PoljeZAkcijo::akcija(int dejanje, Igra trenutnaIgra)
+void PoljeZAkcijo::akcija(int dejanje, Igra*  trenutnaIgra)
 {
 	switch (Vrsta_Akcije)
 	{
@@ -368,28 +368,43 @@ void PoljeZAkcijo::akcija(int dejanje, Igra trenutnaIgra)
 	}
 }
 
-void PosebnoPolje::akcija(int dejanje, Igra trenutnaIgra)
+void PosebnoPolje::akcija(int dejanje, Igra*  trenutnaIgra)
 {
 	switch (dejanje)
 	{
 	case Kupi:
+		if (Lastnik == NULL) {
+			Lastnik = trenutnaIgra->getTrenutniIgralec();
+			Lastnik->odhodek(cena);
+			Lastnik->kupil(this);
+		}
 		break;
 	case Placaj:
+		if (Lastnik != NULL) {
+			trenutnaIgra->getTrenutniIgralec()->odhodek(najem);
+			Lastnik->prihodek(najem);
+		}
 		break;
 	default:
 		break;
 	}
 }
 
-void GradbenoPolje::akcija(int dejanje, Igra trenutnaIgra)
+void GradbenoPolje::akcija(int dejanje, Igra*  trenutnaIgra)
 {
 	switch (dejanje)
 	{
 	case Kupi:
+		if (Lastnik == NULL) {
+			Lastnik = trenutnaIgra->getTrenutniIgralec();
+			Lastnik -> odhodek(cena);
+			Lastnik ->kupil(this);
+		}
 		break;
 	case Placaj:
 		if (Lastnik != NULL) {
-
+			trenutnaIgra -> getTrenutniIgralec() -> odhodek(najem);
+			Lastnik -> prihodek(najem);
 		}
 		break;
 	default:

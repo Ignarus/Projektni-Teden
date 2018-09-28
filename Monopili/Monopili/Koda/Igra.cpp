@@ -7,7 +7,7 @@ void igra(bool &quit, SDL_Event &e) {
 	Igra Trenutna_igra(3);
 
 
-	while (!quit) {
+	while (!quit && Trenutna_igra.aktivnaIgra()) {
 		while (SDL_PollEvent(&e) != 0)
 		{
 			//User requests quit
@@ -26,6 +26,19 @@ void igra(bool &quit, SDL_Event &e) {
 
 		SDL_RenderPresent(gRenderer);
 	}
+	while (!quit) {
+		while (SDL_PollEvent(&e) != 0)
+		{
+			//User requests quit
+			if (e.type == SDL_QUIT)
+			{
+				quit = true;
+			}
+			Trenutna_igra.UpdateCurzoe(&e);
+
+		}
+	}
+
 }
 
 Igra::Igra(int stIgralcev) {
@@ -172,7 +185,7 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 						case 33:
 						case 36:
 						case 38:
-							Polja[Igralci[igralec].getLokacijo()]->akcija(Zacetek,*this);
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Zacetek, this);
 							break;
 						case 5:
 						case 12:
@@ -180,20 +193,35 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 						case 25:
 						case 28:
 						case 35:
-							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj, *this);
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj, this);
 							break;
 						default:
-							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj, *this);
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj, this);
 							break;
 						}
 						Gumbi[i].spremeniUkaz("Koncaj rundo");
 					}
 					else if (Gumbi[i].getUkaz() == "Koncaj rundo") {
+						Igralci[igralec].preveriBankrot();
 						NaslednijIgralec();
 						Gumbi[i].spremeniUkaz("Vrzi");
 					}
 					else if (Gumbi[i].getUkaz() == "Kupi") {
 
+						switch (Igralci[igralec].getLokacijo())
+						{
+						case 5:
+						case 12:
+						case 15:
+						case 25:
+						case 28:
+						case 35:
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Kupi, this);
+							break;
+						default:
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Kupi, this);
+							break;
+						}
 					}
 				}
 			}
@@ -203,13 +231,27 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 
 
 void Igra::NaslednijIgralec() {
-	igralec++;
-	if (igralec >= Igralci.size()) {
-		igralec = 0;
-	}
+	int i = igralec;
+	do {
+		igralec++;
+		if (igralec >= Igralci.size()) {
+			igralec = 0;
+		}
+	} while (!Igralci[igralec].aktiven());
 }
 
 
-Igralec Igra::getTrenutniIgralec() {
-	return Igralci[igralec];
+Igralec* Igra::getTrenutniIgralec() {
+	return &Igralci[igralec];
+}
+
+
+bool Igra::aktivnaIgra() {
+	int actives = 0;
+	for (int i = 0; i < Igralci.size(); i++) {
+		if (Igralci[i].aktiven()) {
+			actives++;
+		}
+	}
+	return (actives > 1);
 }

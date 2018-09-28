@@ -18,6 +18,7 @@ private:
 	Text ImeTekst;
 	int lokacija;
 	Texture Slikca;
+	bool bankrot=false;
 public:
 	Igralec(string ime, int igralec);
 	void narisi(bool naVrsti);
@@ -28,6 +29,9 @@ public:
 	void premikIgralca(int met);
 	void prihodek(int denar);
 	void odhodek(int denar);
+	void kupil(IPolje* novaLastnina);
+	void preveriBankrot();
+	bool aktiven();
 };
 
 
