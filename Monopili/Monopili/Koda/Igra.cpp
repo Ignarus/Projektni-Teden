@@ -148,6 +148,34 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 						ena = (rand() % 6 + 1);
 						dva = (rand() % 6 + 1);
 						Igralci[igralec].premikIgralca( ena + dva );
+						switch (Igralci[igralec].getLokacijo())
+						{
+						case 0:
+						case 2:
+						case 4:
+						case 7:
+						case 10:
+						case 17:
+						case 20:
+						case 22:
+						case 30:
+						case 33:
+						case 36:
+						case 38:
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Zacetek);
+							break;
+						case 5:
+						case 12:
+						case 15:
+						case 25:
+						case 28:
+						case 35:
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj);
+							break;
+						default:
+							Polja[Igralci[igralec].getLokacijo()]->akcija(Placaj);
+							break;
+						}
 						NaslednijIgralec();
 					}
 					if (Gumbi[i].getUkaz() == "Koncaj rundo") {
