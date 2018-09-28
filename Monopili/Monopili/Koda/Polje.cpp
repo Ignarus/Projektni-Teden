@@ -351,7 +351,7 @@ void PoljeZAkcijo::akcija(int dejanje)
 		break;
 	case DrzavnaBanka:
 		break;
-	case DavekNaDohodek	:
+	case DavekNaDohodek:
 		break;
 	case Piloznost:
 		break;
