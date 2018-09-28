@@ -31,3 +31,8 @@ SDL_Rect Gumb::getKvadrat() {
 string Gumb::getUkaz() {
 	return Ukaz;
 }
+
+
+void Gumb::spremeniUkaz(string noviUkaz) {
+	Ukaz = noviUkaz;
+}

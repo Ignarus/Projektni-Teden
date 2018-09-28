@@ -13,6 +13,7 @@ public:
 	Gumb(int zaporedje, string besedilo);
 	void narisi();
 	SDL_Rect getKvadrat();
+	void spremeniUkaz(string noviUkaz);
 	string getUkaz();
 };
 
