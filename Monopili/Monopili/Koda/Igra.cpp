@@ -178,7 +178,10 @@ void Igra::UpdateCurzoe(SDL_Event* e) {
 						}
 						NaslednijIgralec();
 					}
-					if (Gumbi[i].getUkaz() == "Koncaj rundo") {
+					else if (Gumbi[i].getUkaz() == "Koncaj rundo") {
+
+					}
+					else if (Gumbi[i].getUkaz() == "Kupi") {
 
 					}
 				}
